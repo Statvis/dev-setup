@@ -6,7 +6,7 @@
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-source "~/.zshrc"
+source ~/.zshrc
 
 brew install asdf
 
@@ -33,12 +33,13 @@ brew services start postgresql
 /opt/homebrew/bin/createuser -s postgres
 brew install postgis
 
+brew install redis
 
 asdf plugin add nodejs
 asdf install nodejs 16.18.1
 asdf global nodejs 16.18.1
 
-source "~/.zshrc"
+source ~/.zshrc
 
 npm install -g yarn
 
@@ -57,7 +58,7 @@ cd rails
 git clone https://github.com/Statvis/statvis.git
 bundle update --bundler
 bundle config build.ovirt-engine-sdk --with-cflags="-Wno-error=incompatible-function-pointer-types -Wno-error=implicit-function-declaration"
-source "~/.zshrc"
+source ~/.zshrc
 
 cd ~/rails/statvis
 # Update to the latest Rubygems version
