@@ -49,11 +49,12 @@ echo "export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES" >> ~/.zshrc
 brew install gh
 gh auth login
 
+gem install bundler:2.2.29
 
 cd ~
 mkdir rails
 cd rails
-git clone https://github.com/Statvis/statvis.git .
+git clone https://github.com/Statvis/statvis.git
 bundle update --bundler
 bundle config build.ovirt-engine-sdk --with-cflags="-Wno-error=incompatible-function-pointer-types -Wno-error=implicit-function-declaration"
 source "~/.zshrc"
