@@ -62,6 +62,7 @@ mise install ruby@3.3.2
 mise use -g ruby@3.3.2
 mise install node@20.14.0
 mise use -g node@20.14.0
+npm install -g yarn
 
 # ============================================================
 # STEP 5: Core tools
@@ -189,16 +190,7 @@ if [ -f .env.local.example ] && [ ! -f .env.local ]; then
   fi
 fi
 
-gem install bundler
-bundle install
-
-echo ""
-echo "Setting up database..."
-if bundle exec rails db:setup; then
-  echo "  Database ready!"
-else
-  echo "  ⚠️  DB setup failed - run 'bundle exec rails db:setup' manually"
-fi
+bin/worktree-setup
 
 # ============================================================
 echo ""
