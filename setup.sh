@@ -114,9 +114,8 @@ brew services start redis
 # ============================================================
 echo ""
 echo "▶ Step 8: OpenSearch"
-brew tap opensearch-project/tap
-brew install opensearch-project/tap/opensearch
-brew services start opensearch-project/tap/opensearch
+brew install opensearch
+brew services start opensearch
 
 # ============================================================
 # STEP 9: MinIO
