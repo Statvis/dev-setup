@@ -170,22 +170,22 @@ gh auth login
 
 mkdir -p ~/statvis-dev
 
-if [ ! -d ~/statvis-dev/3001 ]; then
-  gh repo clone statvis/statvis ~/statvis-dev/3001
+if [ ! -d ~/statvis-dev/statvis ]; then
+  gh repo clone statvis/statvis ~/statvis-dev/statvis
 else
-  echo "  ~/statvis-dev/3001 already exists, skipping clone"
+  echo "  ~/statvis-dev/statvis already exists, skipping clone"
 fi
 
-cd ~/statvis-dev/3001
+cd ~/statvis-dev/statvis
 
 if [ -f .env.local.example ] && [ ! -f .env.local ]; then
   cp .env.local.example .env.local
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    sed -i '' "s/^DB_SUFFIX=.*/DB_SUFFIX=_3001/" .env.local
-    sed -i '' "s/^PORT=.*/PORT=3001/" .env.local
+    sed -i '' "s/^DB_SUFFIX=.*/DB_SUFFIX=_3000/" .env.local
+    sed -i '' "s/^PORT=.*/PORT=3000/" .env.local
   else
-    sed -i "s/^DB_SUFFIX=.*/DB_SUFFIX=_3001/" .env.local
-    sed -i "s/^PORT=.*/PORT=3001/" .env.local
+    sed -i "s/^DB_SUFFIX=.*/DB_SUFFIX=_3000/" .env.local
+    sed -i "s/^PORT=.*/PORT=3000/" .env.local
   fi
 fi
 
@@ -205,7 +205,7 @@ echo ""
 echo "=== Setup Complete! ==="
 echo ""
 echo "Restart your terminal, then:"
-echo "  cd ~/statvis-dev/3001 && bin/dev"
+echo "  cd ~/statvis-dev/statvis && bin/dev"
 echo ""
 echo "Services running: postgresql@16, redis, opensearch"
 echo "MinIO: minio server ~/statvis-dev/minio-data --console-address :9001"
