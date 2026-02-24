@@ -58,6 +58,10 @@ eval "$(mise activate bash 2>/dev/null || true)"
 # ============================================================
 echo ""
 echo "▶ Step 4: Ruby 3.3.2 + Node 20.14.0 (via mise)"
+
+# Install Ruby build dependencies before compiling
+brew install libyaml readline gmp
+
 mise install ruby@3.3.2
 mise use -g ruby@3.3.2
 mise install node@20.14.0
