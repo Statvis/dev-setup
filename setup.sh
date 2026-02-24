@@ -199,6 +199,8 @@ if [ -f .env.local.example ] && [ ! -f .env.local ]; then
   fi
 fi
 
+# Ensure mise-managed ruby/node are active for worktree-setup
+eval "$(mise activate bash 2>/dev/null || true)"
 bin/worktree-setup
 
 # ============================================================
@@ -208,5 +210,5 @@ echo ""
 echo "Restart your terminal, then:"
 echo "  cd ~/statvis-dev/statvis && bin/dev"
 echo ""
-echo "Services running: postgresql@16, redis, opensearch"
+echo "Services running: postgresql@17, redis, opensearch"
 echo "MinIO: minio server ~/statvis-dev/minio-data --console-address :9001"
