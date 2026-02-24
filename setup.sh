@@ -69,11 +69,17 @@ mise use -g node@20.14.0
 npm install -g yarn
 
 # ============================================================
-# STEP 5: Core tools
+# STEP 5: Core tools + GitHub auth
 # ============================================================
 echo ""
-echo "▶ Step 5: Core tools"
+echo "▶ Step 5: Core tools + GitHub auth"
 brew install tmux overmind gh go
+
+# Authenticate gh and configure git credentials (needed for brew taps and repo cloning)
+if ! gh auth status &>/dev/null; then
+  gh auth login
+fi
+gh auth setup-git
 
 # ============================================================
 # STEP 6: PostgreSQL 16 (Homebrew, no Docker)
@@ -108,7 +114,7 @@ brew services start redis
 # ============================================================
 echo ""
 echo "▶ Step 8: OpenSearch"
-brew tap opensearch-project/tap 2>/dev/null || true
+brew tap opensearch-project/tap
 brew install opensearch-project/tap/opensearch
 brew services start opensearch-project/tap/opensearch
 
@@ -170,8 +176,6 @@ fi
 # ============================================================
 echo ""
 echo "▶ Step 14: Statvis Rails app"
-
-gh auth login
 
 mkdir -p ~/statvis-dev
 
