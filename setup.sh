@@ -82,24 +82,24 @@ fi
 gh auth setup-git
 
 # ============================================================
-# STEP 6: PostgreSQL 16 (Homebrew, no Docker)
+# STEP 6: PostgreSQL 17 + PostGIS + pgvector (Homebrew, no Docker)
 # ============================================================
 echo ""
-echo "▶ Step 6: PostgreSQL 16"
-brew install postgresql@16
+echo "▶ Step 6: PostgreSQL 17 + PostGIS + pgvector"
+brew install postgresql@17
 
-PG_PATH="/opt/homebrew/opt/postgresql@16/bin"
-if ! grep -q "postgresql@16" "$SHELL_CONFIG" 2>/dev/null; then
+PG_PATH="/opt/homebrew/opt/postgresql@17/bin"
+if ! grep -q "postgresql@17" "$SHELL_CONFIG" 2>/dev/null; then
   echo '' >> "$SHELL_CONFIG"
-  echo '# PostgreSQL 16' >> "$SHELL_CONFIG"
+  echo '# PostgreSQL 17' >> "$SHELL_CONFIG"
   echo "export PATH=\"$PG_PATH:\$PATH\"" >> "$SHELL_CONFIG"
 fi
 export PATH="$PG_PATH:$PATH"
 
-brew services start postgresql@16
+brew services start postgresql@17
 "$PG_PATH/createuser" -s postgres 2>/dev/null || echo "  postgres user already exists"
 
-brew install postgis
+brew install postgis pgvector
 
 # ============================================================
 # STEP 7: Redis
