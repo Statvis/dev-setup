@@ -77,7 +77,7 @@ brew install tmux overmind gh go
 
 # Authenticate gh and configure git credentials (needed for brew taps and repo cloning)
 if ! gh auth status &>/dev/null; then
-  gh auth login
+  gh auth login --web
 fi
 gh auth setup-git
 

@@ -1,5 +1,7 @@
 # dev-setup
-A fairly simple bash script for getting a fresh install of OSX Ventura ready for statvis development.
+A bash script for getting a fresh macOS install ready for Statvis development.
+
+Installs: Homebrew, Claude Code, mise, Ruby 3.3.2, Node 20.14.0, PostgreSQL 17 + PostGIS + pgvector, Redis, OpenSearch, MinIO, and all required system dependencies. Clones the Statvis repo and sets up the database.
 
 ## Usage:
 Open a terminal, enter this command:
