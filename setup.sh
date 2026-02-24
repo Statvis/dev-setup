@@ -191,9 +191,11 @@ if [ -f .env.local.example ] && [ ! -f .env.local ]; then
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s/^DB_SUFFIX=.*/DB_SUFFIX=_3000/" .env.local
     sed -i '' "s/^PORT=.*/PORT=3000/" .env.local
+    sed -i '' "s/^DB_PORT=.*/DB_PORT=5432/" .env.local
   else
     sed -i "s/^DB_SUFFIX=.*/DB_SUFFIX=_3000/" .env.local
     sed -i "s/^PORT=.*/PORT=3000/" .env.local
+    sed -i "s/^DB_PORT=.*/DB_PORT=5432/" .env.local
   fi
 fi
 
