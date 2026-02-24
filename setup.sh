@@ -66,6 +66,7 @@ mise install ruby@3.3.2
 mise use -g ruby@3.3.2
 mise install node@20.14.0
 mise use -g node@20.14.0
+eval "$(mise activate bash 2>/dev/null || true)"
 npm install -g yarn
 
 # ============================================================
