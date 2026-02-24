@@ -33,7 +33,7 @@ if ! command -v node &>/dev/null; then
   brew install node
 fi
 if ! command -v claude &>/dev/null; then
-  npm install -g @anthropic-ai/claude-code
+  sudo npm install -g @anthropic-ai/claude-code
 else
   echo "  Already installed"
 fi
