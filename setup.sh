@@ -123,9 +123,11 @@ brew services start opensearch
 # ============================================================
 echo ""
 echo "▶ Step 9: MinIO"
-brew install minio/stable/minio
-mkdir -p ~/statvis-dev/minio-data
-echo "  MinIO installed. Run manually: minio server ~/statvis-dev/minio-data --console-address :9001"
+brew install minio minio-mc
+brew services start minio
+mc alias set local http://localhost:9000 minioadmin minioadmin
+mc mb --ignore-existing local/statvis-dev
+echo "  MinIO running via brew services (port 9000, console 9001)"
 
 # ============================================================
 # STEP 10: GIS libraries
@@ -211,5 +213,5 @@ echo ""
 echo "Restart your terminal, then:"
 echo "  cd ~/statvis-dev/statvis && bin/dev"
 echo ""
-echo "Services running: postgresql@17, redis, opensearch"
-echo "MinIO: minio server ~/statvis-dev/minio-data --console-address :9001"
+echo "Services running: postgresql@17, redis, opensearch, minio"
+echo "MinIO console: http://localhost:9001 (minioadmin/minioadmin)"
